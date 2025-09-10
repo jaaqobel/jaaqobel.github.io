@@ -4,42 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jaaqobel</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #000000;
-        }
-        .content {
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="content" id="randomContent">
-        <!-- Zawartość losowa będzie wyświetlona tutaj -->
-    </div>
 
-    <script>
-        // Lista tekstów do losowania
-        const messages = [
-            "Dziś jest świetny dzień!",
-            "Ktoś uśmiecha się do Ciebie!",
-            "Czujesz się szczęśliwy? To świetnie!",
-        ];
+    <header>
+        <h1>Witaj na mojej stronie!</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">O mnie</a></li>
+                <li><a href="#projects">Projekty</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        // Funkcja losująca wiadomość
-        function showRandomMessage() {
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            document.getElementById('randomContent').textContent = messages[randomIndex];
-        }
+    <section id="about">
+        <h2>O mnie</h2>
+        <p>Jestem uczniem klasy 2. technikum o profilu informatycznym. Interesuję się programowaniem, szczególnie w językach takich jak HTML, CSS, JavaScript oraz Python. W przyszłości chciałbym pracować jako programista.</p>
+    </section>
 
-        // Wywołanie funkcji przy załadowaniu strony
-        window.onload = showRandomMessage;
-    </script>
+    <section id="projects">
+        <h2>Moje projekty</h2>
+        <p>Pracuję nad różnymi projektami, w tym:</p>
+        <ul>
+            <li>Strona internetowa dla mojego hobby</li>
+            <li>Prosta aplikacja do obliczeń matematycznych</li>
+            <li>Strona z portfolio programisty</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Kontakt</h2>
+        <p>Możesz skontaktować się ze mną na adres e-mail: <strong>twojemail@example.com</strong></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Moja Strona</p>
+    </footer>
+
+    <button id="changeBackgroundBtn">Zmień tło</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
