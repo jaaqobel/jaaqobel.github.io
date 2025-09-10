@@ -1,0 +1,44 @@
+/* Resetowanie marginesów i paddingów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stylowanie nagłówka */
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Stylowanie sekcji */
+section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Stylowanie suwaka */
+input[type="range"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#contrast-value {
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+/* Stylowanie stopki */
+footer {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
