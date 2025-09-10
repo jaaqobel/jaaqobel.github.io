@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmiana kontrastu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            transition: all 0.3s ease;
+        }
+        .high-contrast {
+            background-color: #000;
+            color: #fff;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="button" onclick="toggleContrast()">Zmień kontrast</button>
+
+    <script>
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+        }
+    </script>
+
+</body>
+</html>
