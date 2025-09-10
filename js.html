@@ -3,38 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zmiana kontrastu</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fff;
-            color: #000;
-            transition: all 0.3s ease;
-        }
-        .high-contrast {
-            background-color: #000;
-            color: #fff;
-        }
-        .button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 20px;
-        }
-    </style>
+    <title>Zmiana kontrastu za pomocą suwaka</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <button class="button" onclick="toggleContrast()">Zmień kontrast</button>
+    <header>
+        <h1>Zmiana kontrastu strony</h1>
+    </header>
 
-    <script>
-        function toggleContrast() {
-            document.body.classList.toggle('high-contrast');
-        }
-    </script>
+    <section>
+        <h2>Ustaw kontrast strony:</h2>
+        <label for="contrast-slider">Kontrast: </label>
+        <input type="range" id="contrast-slider" min="0" max="200" value="100" step="1">
+        <span id="contrast-value">100%</span>
+    </section>
 
+    <footer>
+        <p>&copy; 2025 Moja Strona</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
