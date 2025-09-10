@@ -1,9 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <h1></h1>
-  </body>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Losowa Strona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .content {
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="randomContent">
+        <!-- Zawartość losowa będzie wyświetlona tutaj -->
+    </div>
+
+    <script>
+        // Lista tekstów do losowania
+        const messages = [
+            "Witaj na losowej stronie!",
+            "Dziś jest świetny dzień!",
+            "Ktoś uśmiecha się do Ciebie!",
+            "Czujesz się szczęśliwy? To świetnie!",
+            "Przypomnienie: życie to piękna podróż!"
+        ];
+
+        // Funkcja losująca wiadomość
+        function showRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById('randomContent').textContent = messages[randomIndex];
+        }
+
+        // Wywołanie funkcji przy załadowaniu strony
+        window.onload = showRandomMessage;
+    </script>
+</body>
 </html>
