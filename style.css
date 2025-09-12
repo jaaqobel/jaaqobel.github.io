@@ -6,12 +6,12 @@
     box-sizing: border-box;
 }
 section {
-    background-color: #492849;
+    background-color: ;
     color: white;
 }
 /* Stylowanie nagłówka */
 header {
-    background-color: #2e2c2c;
+    background-color: argb(88, 64, 125, 0.6);
     color: white;
     padding: 20px;
     text-align: center;
