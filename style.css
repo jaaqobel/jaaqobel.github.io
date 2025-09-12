@@ -105,3 +105,9 @@ a{
 .kolor{
     color: white;
 }
+ html{
+     overflow: hidden;
+     background: url('image/wallpaper.gif') no-repeat center center fixed;
+     background-size: cover;
+     height: 100%;
+ }
