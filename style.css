@@ -59,7 +59,7 @@ section h2 {
 
 /* Stylowanie stopki */
 footer {
-    background-color: #4CAF50;
+    background-color: argb(51, 50, 54, 0.6);
     color: white;
     text-align: center;
     padding: 10px;
