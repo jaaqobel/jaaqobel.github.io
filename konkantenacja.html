@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <title>Przykład konkatenacji</title>
+</head>
+<body>
+    <h2>Konkatenacja tekstów</h2>
 
+    <input type="text" id="input1" placeholder="Wpisz pierwszy tekst" />
+    <input type="text" id="input2" placeholder="Wpisz drugi tekst" />
+    <button onclick="polaczTeksty()">Połącz</button>
+
+    <p>Wynik: <span id="wynik"></span></p>
+
+    <script>
+        function polaczTeksty() {
+            const tekst1 = document.getElementById('input1').value;
+            const tekst2 = document.getElementById('input2').value;
+            // Konkatenacja
+            const polaczonyTekst = tekst1 + " " + tekst2;
+            // Wyświetlenie wyniku
+            document.getElementById('wynik').textContent = polaczonyTekst;
+        }
+    </script>
+</body>
+</html>
