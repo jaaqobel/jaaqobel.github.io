@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykład użycia let w JavaScript</title>
+</head>
+<body>
+
+    <h2>Użycie let w JavaScript</h2>
+
+    <p id="wynik"></p>
+
+    <button onclick="przykladLet()">Kliknij, aby zobaczyć zmienną let</button>
+
+    <script>
+        function przykladLet() {
+            // Deklaracja zmiennej przy użyciu let
+            let imie = "Kasia";
+            let wiek = 25;
+
+            // Użycie zmiennych w prostym komunikacie
+            let komunikat = "Cześć, mam na imię " + imie + " i mam " + wiek + " lat.";
+
+            // Wyświetlenie komunikatu na stronie
+            document.getElementById('wynik').textContent = komunikat;
+        }
+    </script>
+
+</body>
+</html>
