@@ -1,8 +1,20 @@
-<?php
-$imie = "Jan";             // zmienna typu string
-$wiek = 25;                // zmienna typu integer (liczba całkowita)
-$wysokosc = 1.82;          // zmienna typu float (liczba zmiennoprzecinkowa)
-$czyStudent = true;        // zmienna typu boolean (true lub false)
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Przykład zmiennej w PHP</title>
+</head>
+<body>
+    <h2>Zmienne w PHP</h2>
 
-echo "Cześć, nazywam się $imie i mam $wiek lat.";
-?>
+    <?php
+        // Deklaracja zmiennej
+        $imie = "Jan";
+        $wiek = 25;
+        
+        // Wyświetlenie zmiennych
+        echo "<p>Cześć, mam na imię $imie i mam $wiek lat.</p>";
+    ?>
+
+</body>
+</html>
