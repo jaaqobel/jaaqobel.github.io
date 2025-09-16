@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Przykład zmiennych w HTML</title>
+    <title>Przykład zmiennych w JavaScript</title>
 </head>
 <body>
 
-    <h2>Zmienne w JavaScript</h2>
+    <h2>Zmienne w JavaScript na stronie</h2>
 
-    <p id="wynik">Wynik wyświetlania zmiennej pojawi się tutaj...</p>
+    <p id="wynik">Tutaj pojawi się wynik.</p>
 
-    <button onclick="zmienTekst()">Kliknij, aby zmienić tekst</button>
+    <button onclick="zmienTekst()">Kliknij, aby zobaczyć zmienną</button>
 
     <script>
         // Deklaracja zmiennych w JavaScript
-        let imie = "Anna";
-        let wiek = 30;
+        let imie = "Kasia";
+        let wiek = 28;
 
-        // Funkcja, która zmienia treść na stronie
+        // Funkcja zmieniająca tekst na stronie
         function zmienTekst() {
-            // Użycie zmiennych w treści
-            let tekst = "Cześć, nazywam się " + imie + " i mam " + wiek + " lat!";
+            // Łączenie zmiennych w jeden tekst
+            let tekst = "Cześć, mam na imię " + imie + " i mam " + wiek + " lat.";
             
-            // Wstawienie wyniku do elementu na stronie
+            // Wyświetlanie tekstu na stronie
             document.getElementById('wynik').textContent = tekst;
         }
     </script>
