@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Operatorów Przypisania</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            max-width: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 48%;
+            padding: 15px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:active {
+            background-color: #3e8e41;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Kalkulator Operatorów Przypisania</h2>
+
+    <div class="input-group">
+        <label for="input1">Pierwsza liczba:</label>
+        <input type="number" id="input1" placeholder="Wprowadź liczbę" required>
+    </div>
+    <div class="input-group">
+        <label for="input2">Druga liczba:</label>
+        <input type="number" id="input2" placeholder="Wprowadź liczbę" required>
+    </div>
+
+    <div class="row">
+        <button onclick="performAssignmentOperation('=')">= (przypisanie)</button>
+        <button onclick="performAssignmentOperation('+=')">+=</button>
+    </div>
+    <div class="row">
+        <button onclick="performAssignmentOperation('-=')">-=(odjęcie)</button>
+        <button onclick="performAssignmentOperation('*=')">*= (mnożenie)</button>
+    </div>
+    <div class="row">
+        <button onclick="performAssignmentOperation('/=')">/= (dzielenie)</button>
+        <button onclick="performAssignmentOperation('%=')">%= (modulo)</button>
+    </div>
+    <div class="row">
+        <button onclick="performAssignmentOperation('**=')">**= (potęgowanie)</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function performAssignmentOperation(operator) {
+        // Pobranie liczb z inputów
+        let num1 = parseFloat(document.getElementById('input1').value);
+        let num2 = parseFloat(document.getElementById('input2').value);
+        let result;
+
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById('result').innerHTML = "<span style='color: red;'>Proszę wprowadzić prawidłowe liczby!</span>";
+            return;
+        }
+
+        switch (operator) {
+            case '=':
+                result = num1 = num2;
+                break;
+            case '+=':
+                result = num1 += num2;
+                break;
+            case '-=':
+                result = num1 -= num2;
+                break;
+            case '*=':
+                result = num1 *= num2;
+                break;
+            case '/=':
+                result = num1 /= num2;
+                break;
+            case '%=':
+                result = num1 %= num2;
+                break;
+            case '**=':
+                result = num1 **= num2;
+                break;
+            default:
+                result = "Nieznana operacja!";
+        }
+
+        document.getElementById('result').innerHTML = `Wynik: ${result}`;
+    }
+</script>
+
+</body>
+</html>
