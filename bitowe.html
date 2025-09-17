@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Operatorów Bitowych</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            max-width: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 48%;
+            padding: 15px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:active {
+            background-color: #3e8e41;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Kalkulator Operatorów Bitowych</h2>
+
+    <div class="input-group">
+        <label for="input1">Pierwsza liczba:</label>
+        <input type="number" id="input1" placeholder="Wprowadź liczbę" required>
+    </div>
+    <div class="input-group">
+        <label for="input2">Druga liczba:</label>
+        <input type="number" id="input2" placeholder="Wprowadź liczbę" required>
+    </div>
+
+    <div class="row">
+        <button onclick="performBitwiseOperation('AND')">AND (&amp;)</button>
+        <button onclick="performBitwiseOperation('OR')">OR (|)</button>
+    </div>
+    <div class="row">
+        <button onclick="performBitwiseOperation('XOR')">XOR (^)</button>
+        <button onclick="performBitwiseOperation('NOT')">NOT (~)</button>
+    </div>
+    <div class="row">
+        <button onclick="performBitwiseOperation('LSHIFT')"><< (Przesunięcie w lewo)</button>
+        <button onclick="performBitwiseOperation('RSHIFT')">>> (Przesunięcie w prawo)</button>
+    </div>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function performBitwiseOperation(operation) {
+        // Pobranie liczb z inputów
+        let num1 = parseInt(document.getElementById('input1').value, 10);
+        let num2 = parseInt(document.getElementById('input2').value, 10);
+        let result;
+
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById('result').innerHTML = "<span style='color: red;'>Proszę wprowadzić prawidłowe liczby!</span>";
+            return;
+        }
+
+        switch (operation) {
+            case 'AND':
+                result = num1 & num2;
+                break;
+            case 'OR':
+                result = num1 | num2;
+                break;
+            case 'XOR':
+                result = num1 ^ num2;
+                break;
+            case 'NOT':
+                result = ~num1; // Zastosowanie NOT na pierwszej liczbie
+                break;
+            case 'LSHIFT':
+                result = num1 << 1; // Przesunięcie w lewo
+                break;
+            case 'RSHIFT':
+                result = num1 >> 1; // Przesunięcie w prawo
+                break;
+            default:
+                result = "Nieznana operacja!";
+        }
+
+        document.getElementById('result').innerHTML = "Wynik: " + result + " (w systemie dziesiętnym)";
+    }
+</script>
+
+</body>
+</html>
