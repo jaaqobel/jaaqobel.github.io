@@ -111,46 +111,67 @@
 </div>
 
 <script>
+    // Funkcja wykonująca operacje porównania między dwiema liczbami
     function performComparisonOperation(operator) {
-        // Pobranie liczb z inputów
+        // Pobranie danych z pól input i zamiana ich na liczby zmiennoprzecinkowe
         let num1 = parseFloat(document.getElementById('input1').value);
         let num2 = parseFloat(document.getElementById('input2').value);
-        let result;
+        let result; // Zmienna do przechowywania wyniku porównania
 
+        // Sprawdzenie, czy użytkownik wpisał poprawne liczby
         if (isNaN(num1) || isNaN(num2)) {
+            // Jeśli którakolwiek wartość nie jest liczbą, wyświetl komunikat o błędzie
             document.getElementById('result').innerHTML = "<span style='color: red;'>Proszę wprowadzić prawidłowe liczby!</span>";
-            return;
+            return; // Zakończ funkcję
         }
 
+        // Wybór operacji porównania na podstawie przekazanego operatora
         switch (operator) {
             case '==':
+                // Sprawdzenie, czy wartości są równe (bez uwzględniania typu)
                 result = num1 == num2;
                 break;
+
             case '===':
+                // Sprawdzenie, czy wartości i typy są identyczne (ścisłe porównanie)
                 result = num1 === num2;
                 break;
+
             case '!=':
+                // Sprawdzenie, czy wartości są różne (bez uwzględniania typu)
                 result = num1 != num2;
                 break;
+
             case '>':
+                // Sprawdzenie, czy pierwsza liczba jest większa od drugiej
                 result = num1 > num2;
                 break;
+
             case '<':
+                // Sprawdzenie, czy pierwsza liczba jest mniejsza od drugiej
                 result = num1 < num2;
                 break;
+
             case '>=':
+                // Sprawdzenie, czy pierwsza liczba jest większa lub równa drugiej
                 result = num1 >= num2;
                 break;
+
             case '<=':
+                // Sprawdzenie, czy pierwsza liczba jest mniejsza lub równa drugiej
                 result = num1 <= num2;
                 break;
+
             default:
+                // Jeśli operator nie jest rozpoznany
                 result = "Nieznana operacja!";
         }
 
+        // Wyświetlenie wyniku (true/false lub tekst błędu)
         document.getElementById('result').innerHTML = `Wynik: ${result}`;
     }
 </script>
+
 
 </body>
 </html>
