@@ -104,30 +104,36 @@
 </div>
 
 <script>
+    // Funkcja wykonująca różne operacje na łańcuchach tekstowych
     function performStringOperation(operator) {
-        // Pobranie tekstów z inputów
+        // Pobranie wartości (tekstów) z pól input o id "input1" i "input2"
         let text1 = document.getElementById('input1').value;
         let text2 = document.getElementById('input2').value;
-        let result;
+        let result; // Zmienna do przechowania wyniku operacji
 
+        // Sprawdzenie, jaka operacja ma być wykonana, na podstawie przekazanego operatora
         if (operator === '+') {
-            // Łączenie dwóch łańcuchów
+            // Operator "+" - łączenie (konkatenacja) dwóch łańcuchów znaków
             result = text1 + text2;
         } else if (operator === '+=') {
-            // Dodawanie do pierwszego łańcucha
+            // Operator "+=" - dodanie (dołączenie) drugiego tekstu do pierwszego
             text1 += text2;
             result = text1;
         } else if (operator === 'length') {
-            // Zwrócenie długości obu łańcuchów
+            // Operator "length" - sprawdzenie długości obu tekstów
+            // Właściwość .length zwraca liczbę znaków w danym łańcuchu
             result = `Długość pierwszego tekstu: ${text1.length}, Długość drugiego tekstu: ${text2.length}`;
         } else if (operator === 'slice') {
-            // Wydzielenie części pierwszego łańcucha
-            result = text1.slice(0, 5); // Wydzielenie pierwszych 5 znaków
+            // Operator "slice" - wycięcie fragmentu łańcucha
+            // Metoda .slice(start, end) zwraca część tekstu od znaku 'start' do 'end' (nie wliczając end)
+            result = text1.slice(0, 5); // Wydzielenie pierwszych 5 znaków z tekstu pierwszego
         }
 
+        // Wyświetlenie wyniku operacji w elemencie HTML o id "result"
         document.getElementById('result').innerHTML = `Wynik: ${result}`;
     }
 </script>
+
 
 </body>
 </html>
