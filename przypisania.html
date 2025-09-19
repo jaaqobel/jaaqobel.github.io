@@ -111,46 +111,66 @@
 </div>
 
 <script>
+    // Funkcja wykonująca operacje przypisania (np. +=, -=, *= itd.)
     function performAssignmentOperation(operator) {
-        // Pobranie liczb z inputów
+        // Pobranie wartości z dwóch pól input i konwersja ich na liczby zmiennoprzecinkowe
         let num1 = parseFloat(document.getElementById('input1').value);
         let num2 = parseFloat(document.getElementById('input2').value);
-        let result;
+        let result; // Zmienna do przechowywania wyniku
 
+        // Sprawdzenie, czy oba inputy zawierają poprawne liczby
         if (isNaN(num1) || isNaN(num2)) {
             document.getElementById('result').innerHTML = "<span style='color: red;'>Proszę wprowadzić prawidłowe liczby!</span>";
-            return;
+            return; // Przerwanie działania funkcji w przypadku błędu
         }
 
+        // Wykonanie operacji przypisania w zależności od wybranego operatora
         switch (operator) {
             case '=':
+                // Przypisanie wartości num2 do num1
                 result = num1 = num2;
                 break;
+
             case '+=':
+                // Dodanie num2 do num1 i przypisanie wyniku do num1
                 result = num1 += num2;
                 break;
+
             case '-=':
+                // Odjęcie num2 od num1 i przypisanie wyniku do num1
                 result = num1 -= num2;
                 break;
+
             case '*=':
+                // Pomnożenie num1 przez num2 i przypisanie wyniku do num1
                 result = num1 *= num2;
                 break;
+
             case '/=':
+                // Podzielenie num1 przez num2 i przypisanie wyniku do num1
                 result = num1 /= num2;
                 break;
+
             case '%=':
+                // Obliczenie reszty z dzielenia num1 przez num2 i przypisanie wyniku
                 result = num1 %= num2;
                 break;
+
             case '**=':
+                // Podniesienie num1 do potęgi num2 i przypisanie wyniku
                 result = num1 **= num2;
                 break;
+
             default:
+                // W przypadku nieznanego operatora – komunikat błędu
                 result = "Nieznana operacja!";
         }
 
+        // Wyświetlenie wyniku operacji w elemencie HTML o id 'result'
         document.getElementById('result').innerHTML = `Wynik: ${result}`;
     }
 </script>
+
 
 </body>
 </html>
