@@ -108,43 +108,61 @@
 </div>
 
 <script>
+    // Funkcja wykonująca operacje bitowe na dwóch liczbach całkowitych
     function performBitwiseOperation(operation) {
-        // Pobranie liczb z inputów
+        // Pobranie wartości z inputów i konwersja ich na liczby całkowite w systemie dziesiętnym (radix = 10)
         let num1 = parseInt(document.getElementById('input1').value, 10);
         let num2 = parseInt(document.getElementById('input2').value, 10);
-        let result;
+        let result; // Zmienna do przechowania wyniku operacji
 
+        // Sprawdzenie, czy obie wartości to liczby. Jeśli nie, wyświetlany jest komunikat o błędzie.
         if (isNaN(num1) || isNaN(num2)) {
             document.getElementById('result').innerHTML = "<span style='color: red;'>Proszę wprowadzić prawidłowe liczby!</span>";
-            return;
+            return; // Zakończenie działania funkcji, jeśli dane są nieprawidłowe
         }
 
+        // Sprawdzenie, jaka operacja została wybrana
         switch (operation) {
             case 'AND':
+                // Operator bitowy AND (&): porównuje bity obu liczb, wynik to 1 tylko gdy oba bity są 1
                 result = num1 & num2;
                 break;
+
             case 'OR':
+                // Operator bitowy OR (|): wynik to 1, jeśli przynajmniej jeden z bitów jest 1
                 result = num1 | num2;
                 break;
+
             case 'XOR':
+                // Operator bitowy XOR (^): wynik to 1, jeśli bity są różne
                 result = num1 ^ num2;
                 break;
+
             case 'NOT':
-                result = ~num1; // Zastosowanie NOT na pierwszej liczbie
+                // Operator bitowy NOT (~): odwraca wszystkie bity liczby (działa tylko na num1)
+                result = ~num1;
                 break;
+
             case 'LSHIFT':
-                result = num1 << 1; // Przesunięcie w lewo
+                // Przesunięcie bitów w lewo (<<): mnożenie liczby przez 2
+                result = num1 << 1;
                 break;
+
             case 'RSHIFT':
-                result = num1 >> 1; // Przesunięcie w prawo
+                // Przesunięcie bitów w prawo (>>): dzielenie liczby przez 2 (z uwzględnieniem znaku)
+                result = num1 >> 1;
                 break;
+
             default:
+                // Jeśli przekazano nieznaną operację
                 result = "Nieznana operacja!";
         }
 
+        // Wyświetlenie wyniku operacji w elemencie HTML o id 'result'
         document.getElementById('result').innerHTML = "Wynik: " + result + " (w systemie dziesiętnym)";
     }
 </script>
+
 
 </body>
 </html>
