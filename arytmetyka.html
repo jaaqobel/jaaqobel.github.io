@@ -95,40 +95,48 @@
 </div>
 
 <script>
+    // Funkcja do obliczania wyników operacji matematycznych
     function calculate(operator) {
+        // Pobieranie wartości z pól tekstowych num1 i num2, konwertowanie ich na liczby zmiennoprzecinkowe
         let num1 = parseFloat(document.getElementById('num1').value);
         let num2 = parseFloat(document.getElementById('num2').value);
-        let result;
+        let result; // Zmienna do przechowywania wyniku operacji
 
+        // Sprawdzenie, czy obie wartości są liczbami
         if (isNaN(num1) || isNaN(num2)) {
+            // Jeśli któraś z wartości nie jest liczbą, wyświetlamy komunikat o błędzie
             document.getElementById('result').innerHTML = "<span class='error'>Proszę wprowadzić prawidłowe liczby.</span>";
-            return;
+            return; // Kończymy działanie funkcji, aby nie kontynuować obliczeń
         }
 
+        // Wykonanie odpowiedniej operacji matematycznej na podstawie przekazanego operatora
         switch (operator) {
-            case '+':
+            case '+':  // Jeśli operator to '+', wykonujemy dodawanie
                 result = num1 + num2;
                 break;
-            case '-':
+            case '-':  // Jeśli operator to '-', wykonujemy odejmowanie
                 result = num1 - num2;
                 break;
-            case '*':
+            case '*':  // Jeśli operator to '*', wykonujemy mnożenie
                 result = num1 * num2;
                 break;
-            case '/':
+            case '/':  // Jeśli operator to '/', wykonujemy dzielenie
+                // Sprawdzamy, czy próbujemy dzielić przez zero
                 if (num2 === 0) {
-                    result = "<span class='error'>Nie można dzielić przez 0!</span>";
+                    result = "<span class='error'>Nie można dzielić przez 0!</span>"; // Wyświetlamy komunikat o błędzie, jeśli dzielnik to 0
                 } else {
-                    result = num1 / num2;
+                    result = num1 / num2;  // Wykonujemy dzielenie, jeśli dzielnik jest różny od 0
                 }
                 break;
-            default:
-                result = "Nieznany operator.";
+            default:  // Jeśli operator nie jest rozpoznany
+                result = "Nieznany operator."; // Wyświetlamy komunikat o błędzie
         }
 
+        // Wyświetlanie wyniku obliczenia lub komunikatu o błędzie w elemencie HTML o id 'result'
         document.getElementById('result').innerHTML = "Wynik: " + result;
     }
 </script>
+
 
 </body>
 </html>
