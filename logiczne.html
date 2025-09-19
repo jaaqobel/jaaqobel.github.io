@@ -99,32 +99,45 @@
 </div>
 
 <script>
+    // Funkcja wykonująca operacje logiczne na podstawie checkboxów
     function performLogicalOperation(operation) {
-        // Pobranie wartości z checkboxów (true/false)
+        // Pobranie wartości zaznaczenia z dwóch checkboxów o id "input1" i "input2"
+        // .checked zwraca true (zaznaczone) lub false (niezaznaczone)
         let input1 = document.getElementById('input1').checked;
         let input2 = document.getElementById('input2').checked;
-        let result;
+        let result; // Zmienna na wynik operacji
 
+        // Wybór operacji logicznej w zależności od przekazanego parametru
         switch (operation) {
             case 'AND':
+                // Operator logiczny AND (&&): zwraca true tylko, gdy oba warunki są true
                 result = input1 && input2;
+                // Jeśli wynik true – tekst "Prawda", jeśli false – tekst "Fałsz"
                 result = result ? "Prawda (true)" : "Fałsz (false)";
                 break;
+
             case 'OR':
+                // Operator logiczny OR (||): zwraca true, jeśli przynajmniej jeden warunek jest true
                 result = input1 || input2;
                 result = result ? "Prawda (true)" : "Fałsz (false)";
                 break;
+
             case 'NOT':
+                // Operator logiczny NOT (!): neguje wartość input1
                 result = !input1;
                 result = result ? "Prawda (true)" : "Fałsz (false)";
                 break;
+
             default:
+                // Jeśli przekazano nieznaną operację
                 result = "Nieznana operacja!";
         }
 
+        // Wyświetlenie wyniku w elemencie HTML o id "result"
         document.getElementById('result').innerHTML = "Wynik: " + result;
     }
 </script>
+
 
 </body>
 </html>
