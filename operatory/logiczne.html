@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Operatorów Logicznych</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            max-width: 100%;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .input-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+        button {
+            width: 48%;
+            padding: 15px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        button:active {
+            background-color: #3e8e41;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        #result {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Kalkulator Operatorów Logicznych</h2>
+    
+    <div class="input-group">
+        <label for="input1">Pierwsza wartość (true/false):</label>
+        <input type="checkbox" id="input1">
+    </div>
+    <div class="input-group">
+        <label for="input2">Druga wartość (true/false):</label>
+        <input type="checkbox" id="input2">
+    </div>
+
+    <div class="row">
+        <button onclick="performLogicalOperation('AND')">AND</button>
+        <button onclick="performLogicalOperation('OR')">OR</button>
+    </div>
+    <div class="row">
+        <button onclick="performLogicalOperation('NOT')">NOT (pierwsza)</button>
+    </div>
+    
+    <div id="result"></div>
+</div>
+
+<script>
+    // Funkcja wykonująca operacje logiczne na podstawie checkboxów
+    function performLogicalOperation(operation) {
+        // Pobranie wartości zaznaczenia z dwóch checkboxów o id "input1" i "input2"
+        // .checked zwraca true (zaznaczone) lub false (niezaznaczone)
+        let input1 = document.getElementById('input1').checked;
+        let input2 = document.getElementById('input2').checked;
+        let result; // Zmienna na wynik operacji
+
+        // Wybór operacji logicznej w zależności od przekazanego parametru
+        switch (operation) {
+            case 'AND':
+                // Operator logiczny AND (&&): zwraca true tylko, gdy oba warunki są true
+                result = input1 && input2;
+                // Jeśli wynik true – tekst "Prawda", jeśli false – tekst "Fałsz"
+                result = result ? "Prawda (true)" : "Fałsz (false)";
+                break;
+
+            case 'OR':
+                // Operator logiczny OR (||): zwraca true, jeśli przynajmniej jeden warunek jest true
+                result = input1 || input2;
+                result = result ? "Prawda (true)" : "Fałsz (false)";
+                break;
+
+            case 'NOT':
+                // Operator logiczny NOT (!): neguje wartość input1
+                result = !input1;
+                result = result ? "Prawda (true)" : "Fałsz (false)";
+                break;
+
+            default:
+                // Jeśli przekazano nieznaną operację
+                result = "Nieznana operacja!";
+        }
+
+        // Wyświetlenie wyniku w elemencie HTML o id "result"
+        document.getElementById('result').innerHTML = "Wynik: " + result;
+    }
+</script>
+
+
+</body>
+</html>
