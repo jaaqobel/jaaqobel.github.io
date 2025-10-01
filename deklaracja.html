@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykład Funkcji w JavaScript</title>
+    <script>
+        // Funkcja deklaracyjna
+        function pokazDeklaracje() {
+            alert("To jest funkcja deklaracyjna!");
+        }
+
+        // Wyrażenie funkcyjne
+        const pokazWyrazenie = function() {
+            alert("To jest wyrażenie funkcyjne!");
+        }
+
+        // Funkcje uruchamiane po kliknięciu przycisków
+        function testDeklaracji() {
+            pokazDeklaracje();
+        }
+
+        function testWyrazenia() {
+            pokazWyrazenie();
+        }
+    </script>
+</head>
+<body>
+    <h1>Przykład Funkcji Deklaracyjnej i Wyrażenia Funkcyjnego</h1>
+    
+    <button onclick="testDeklaracji()">Test Funkcji Deklaracyjnej</button>
+    <button onclick="testWyrazenia()">Test Wyrażenia Funkcyjnego</button>
+</body>
+</html>
