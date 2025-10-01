@@ -105,6 +105,7 @@ a{
 }
 .kolor{
     color: white;
+    text-shadow: black 2px 0px 10px;
 }
  html{
     margin: 0 auto;
