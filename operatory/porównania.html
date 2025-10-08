@@ -127,13 +127,9 @@
                 result = num1 == num2;
                 break;
 
-         function showLogic() {
-        const val1 = document.getElementById('logic-val1').value === 'true';
-        const val2 = document.getElementById('logic-val2').value === 'true';
-        const result = val1 && val2;
-        document.getElementById('logic-result').textContent = `${val1} && ${val2} = ${result}`;
-    }
-
+            case '===':
+                result = num1 === num2;
+                break;
 
             case '!=':
                 result = num1 != num2;
