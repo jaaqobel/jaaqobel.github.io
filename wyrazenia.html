@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosta Strona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .content {
+            padding: 20px;
+            background-color: white;
+            margin: 20px auto;
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Witaj na mojej stronie!</h1>
+    </header>
+
+    <div class="content">
+        <h2>Witaj, użytkowniku!</h2>
+        <p>Kliknij poniższy przycisk, aby wyświetlić powitanie lub sprawdzić datę.</p>
+
+        <button onclick="greetUser()">Kliknij, aby powitać!</button>
+        <button onclick="showDate()">Kliknij, aby wyświetlić datę!</button>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+// Funkcja bezargumentowa
+function greetUser() {
+    // Znajdujemy element o id "message" i ustawiamy jego zawartość na powitanie
+    document.getElementById("message").innerHTML = "Cześć, witaj na naszej stronie!";
+}
+
+// Funkcja z argumentem
+function showDate() {
+    // Tworzymy nowy obiekt daty (pobiera aktualną datę i godzinę)
+    const currentDate = new Date();
+    
+    // Znajdujemy element o id "message" i ustawiamy jego zawartość na dzisiejszą datę
+    // Metoda toLocaleDateString() konwertuje datę do formatu zgodnego z lokalnymi ustawieniami
+    document.getElementById("message").innerHTML = "Dzisiejsza data to: " + currentDate.toLocaleDateString();
+}
+
+    </script>
+</body>
+</html>
