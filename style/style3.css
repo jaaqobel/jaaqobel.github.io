@@ -6,7 +6,7 @@
 html{
   margin: 0 auto;
   width:900px;
-  background: url('../image/wallpaper.gif') no repeat center center fisex;
+  background-image: url('../image/wallpaper.gif') no repeat center center fisex;
   background-size:cover;
   height: 1200px;
   scrolll-behavior: smooth;
