@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z promptem</title>
+    <script>
+        window.onload = function() {
+            // Zabezpieczenie przy pomocy prompt()
+            var userInput = prompt("Wprowadź kod (np. 123), aby przejść na stronę.");
+            
+            if (userInput === "123") {
+                alert("Dostęp przyznany!");
+                // Możemy wykorzystać różne właściwości okna:
+                console.log("Frames: ", window.frames);
+                console.log("Length: ", window.frames.length);
+                console.log("Status: ", window.status);
+                console.log("Default Status: ", window.defaultStatus);
+
+                // Jeśli chcesz otworzyć nowe okno:
+                var newWindow = window.open("https://jaaqobel.github.io/", "_blank");
+                newWindow.focus();
+
+                // Zamknij okno:
+                setTimeout(function() {
+                    newWindow.close();
+                    alert("Okno zostało zamknięte.");
+                }, 5000); // Zamknie okno po 5 sekundach
+            } else {
+                alert("Błędny kod! Dostęp zabroniony.");
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Witaj na mojej stronie!</h1>
+</body>
+</html>
