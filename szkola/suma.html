@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosta suma w JavaScript</title>
+</head>
+<body>
+
+    <h2>Prosta suma dwóch liczb</h2>
+
+    <form id="formularz">
+        <label for="liczba1">Pierwsza liczba:</label>
+        <input type="number" id="liczba1" required>
+
+        <br><br>
+
+        <label for="liczba2">Druga liczba:</label>
+        <input type="number" id="liczba2" required>
+
+        <br><br>
+
+        <button type="button" onclick="dodaj()">Suma</button>
+    </form>
+
+    <h3>Wynik: <span id="wynik">0</span></h3>
+
+    <script>
+        function dodaj() {
+            // Pobranie wartości z pól input
+            let liczba1 = parseFloat(document.getElementById('liczba1').value);
+            let liczba2 = parseFloat(document.getElementById('liczba2').value);
+
+            // Obliczenie sumy
+            let suma = liczba1 + liczba2;
+
+            // Wyświetlenie wyniku na stronie
+            document.getElementById('wynik').textContent = suma;
+        }
+    </script>
+
+</body>
+</html>
