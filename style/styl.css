@@ -22,7 +22,6 @@ header {
 }
 
 body {
-    background-color: #f4f4f9;
     color: #333;
     display: flex;
     font-family: Arial, sans-serif;
@@ -67,3 +66,4 @@ a {
 a:hover {
     transform: scale(1.1);
 }
+
