@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 section {
     background-color: argb(88, 64, 125, 0.6);
@@ -111,11 +112,9 @@ a{
  html{
     margin: 0 auto;
     width: 800px;
-     overflow: hidden;
      background: url('../image/wallpaper.gif') no-repeat center center fixed;
      background-size: cover;
      height: 100%;
-     scroll-behavior: smooth;
  }
 body {
     font-family: "Poppins", sans-serif;
