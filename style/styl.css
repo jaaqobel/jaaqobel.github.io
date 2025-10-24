@@ -64,6 +64,12 @@ a:hover {
     transform: scale(1.1); 
     background-color: rgba(86, 87, 91, 0.44);
 }
+button:hover {
+    background-color: black;
+}
+button:active {
+     background-color: gray;
+}
 
 
 
