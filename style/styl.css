@@ -1,11 +1,8 @@
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
 }
 
 html {
-    height: 100%;
     margin: auto;
     scroll-behavior: smooth;
     background-image: url('../image/wallpaper.gif');
@@ -66,6 +63,7 @@ a {
 a:hover {
     transform: scale(1.1);
 }
+
 
 
 
