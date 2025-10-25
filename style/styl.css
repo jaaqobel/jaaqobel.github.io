@@ -65,11 +65,12 @@ a:hover {
     background-color: rgba(86, 87, 91, 0.44);
 }
 button:hover {
-    background-color: black;
+    background-color: rgba(173, 27, 187, 0.35);
 }
 button:active {
-     background-color: gray;
+     background-color: rgba(173, 27, 187, 0.35);
 }
+
 
 
 
