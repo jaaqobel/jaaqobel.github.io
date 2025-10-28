@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #006644;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+article {
+    background-image: url('baner.jpg'); /* opcjonalny obraz tła */
+    background-size: cover;
+    color: white;
+    padding: 30px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #b3ffb3;
+}
+
+section.pakiet {
+    background-color: #00cc66;
+    padding: 20px;
+    width: 25%;
+    border-radius: 10px;
+    color: black;
+}
+
+section.pakiet h3 {
+    text-align: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+}
+
+section.pakiet ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+section.pakiet li {
+    margin: 5px 0;
+}
+
+footer {
+    background-color: #006644;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+footer img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
