@@ -1,121 +1,146 @@
-
 /* Resetowanie marginesów i paddingów */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-}
+/* Stylowanie sekcji */
 section {
-    background-color: argb(88, 64, 125, 0.6);
-    color: white;
+  background-color: rgba(88, 64, 125, 0.6);
+  color: white;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
+
 /* Stylowanie nagłówka */
 header {
-    background-color: argb(51, 50, 54, 0.6);
-    color: white;
-    padding: 20px;
-    text-align: center;
+  background-color: rgba(51, 50, 54, 0.6);
+  color: white;
+  padding: 20px;
+  text-align: center;
 }
 
 header h1 {
-    font-size: 2rem;
+  font-size: 2rem;
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #0088ff;
+  animation: neon-pulse 2s infinite alternate;
 }
 
 /* Nawigacja */
 nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 nav ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #0088ff;
+  transition: all 0.3s ease-in-out;
+  animation: neon-pulse 2s infinite alternate;
 }
 
+/* Efekt przy najechaniu */
 nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Sekcje */
-section {
-    padding: 20px;
-    margin: 20px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    color: white;
-}
-
-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #0088ff;
 }
 
 /* Stylowanie stopki */
 footer {
-    background-color: argb(51, 50, 54, 0.6);
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+  background-color: rgba(51, 50, 54, 0.6);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }
 
 /* Przycisk zmiany tła */
 #changeBackgroundBtn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 #changeBackgroundBtn:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 /* Responsywność */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
+  header h1 {
+    font-size: 1.5rem;
+  }
 
-    nav ul {
-        flex-direction: column;
-    }
+  nav ul {
+    flex-direction: column;
+  }
 
-    nav ul li {
-        margin: 5px 0;
-    }
+  nav ul li {
+    margin: 5px 0;
+  }
 }
-a{
-    color: white;
-    text-decoration: none;
-    text-shadow: black 2px 0 10px:
+
+/* Ogólne tło */
+html {
+  background: url('../image/wallpaper.gif') no-repeat center center fixed;
+  background-size: cover;
 }
-.kolor{
-    color: white;
-    text-shadow: black 2px 0px 10px;
-}
- html{
-    margin: 0 auto;
-    width: 800px;
-     background: url('../image/wallpaper.gif') no-repeat center center fixed;
-     background-size: cover;
-     height: 100%;
- }
+
 body {
-    font-family: "Poppins", sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  padding-bottom: 60px;
+  color: white;
+}
+
+/* Linki i klasa .kolor z efektem neonowym */
+a, .kolor {
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #0088ff;
+  animation: neon-pulse 2s infinite alternate;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover, .kolor:hover {
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #0088ff;
+}
+
+/* 🔹 Definicja animacji neon-pulse */
+@keyframes neon-pulse {
+  from {
+    text-shadow: 
+      0 0 5px #00ffff,
+      0 0 10px #00ffff,
+      0 0 20px #0088ff,
+      0 0 40px #0088ff;
+  }
+  to {
+    text-shadow: 
+      0 0 10px #00ffff,
+      0 0 20px #00ffff,
+      0 0 40px #0088ff,
+      0 0 80px #0088ff;
+  }
 }
