@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funkcje strzałkowe – przykład</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    h1 {
+      color: #0078d4;
+    }
+    input {
+      padding: 8px;
+      margin: 5px;
+      font-size: 16px;
+      width: 80px;
+      text-align: center;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #0078d4;
+      color: white;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Przykład funkcji strzałkowych w JavaScript</h1>
+
+  <p>Wpisz dwie liczby, a funkcje strzałkowe obliczą wynik.</p>
+
+  <input type="number" id="num1" placeholder="Liczba 1">
+  <input type="number" id="num2" placeholder="Liczba 2">
+  <button id="btnAdd">Dodaj</button>
+  <button id="btnMultiply">Pomnóż</button>
+
+  <div id="result"></div>
+
+  <script>
+    // 🔹 Przykład 1: prosta funkcja strzałkowa z dwoma argumentami
+    const addNumbers = (a, b) => a + b;
+
+    // 🔹 Przykład 2: funkcja strzałkowa z blokiem kodu
+    const multiplyNumbers = (a, b) => {
+      const result = a * b;
+      return result;
+    };
+
+    // 🔹 Przykład 3: funkcja strzałkowa wyświetlająca tekst na stronie
+    const showResult = (text) => {
+      document.getElementById("result").textContent = text;
+    };
+
+    // 🔹 Przykład 4: funkcje strzałkowe jako callbacki w obsłudze kliknięcia
+    document.getElementById("btnAdd").addEventListener("click", () => {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        showResult("❌ Wpisz obie liczby!");
+        return;
+      }
+
+      const sum = addNumbers(num1, num2);
+      showResult(`✅ Suma: ${sum}`);
+    });
+
+    document.getElementById("btnMultiply").addEventListener("click", () => {
+      const num1 = parseFloat(document.getElementById("num1").value);
+      const num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        showResult("❌ Wpisz obie liczby!");
+        return;
+      }
+
+      const product = multiplyNumbers(num1, num2);
+      showResult(`✅ Iloczyn: ${product}`);
+    });
+  </script>
+
+</body>
+</html>
