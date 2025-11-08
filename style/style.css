@@ -103,7 +103,7 @@ footer {
 
 /* Ogólne tło — 🔹 usunięto fixed i zamieniono GIF na lżejszy format */
 html {
-  background: url('../image/wallpaper.webp') no-repeat center center;
+  background: url('../image/wallpaper.gif') no-repeat center center;
   background-size: cover;
   background-attachment: scroll;
 }
