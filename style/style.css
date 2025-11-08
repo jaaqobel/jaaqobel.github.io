@@ -23,13 +23,10 @@ header {
   text-align: center;
 }
 
+/* 🌈 Animacja tylko dla nagłówka */
 header h1 {
   font-size: 2rem;
   text-shadow: 0 0 15px #00ffff, 0 0 30px #0088ff;
-  animation: neon-pulse 2s infinite alternate;
-  
-}
-h1 {
   filter: drop-shadow(0 0 10px #00ffff);
   animation: neon-pulse 2s infinite alternate;
 }
@@ -46,13 +43,14 @@ nav ul li {
   margin: 0 15px;
 }
 
+/* 🌈 Neonowy efekt bez animacji */
 nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #0088ff;
   transition: all 0.3s ease-in-out;
-  animation: neon-pulse 2s infinite alternate;
+  animation: none;
 }
 
 /* Efekt przy najechaniu */
@@ -61,15 +59,14 @@ nav ul li a:hover {
   text-shadow: 0 0 20px #00ffff, 0 0 40px #0088ff;
 }
 
-/* Stylowanie stopki */
+/* Stylowanie stopki — 🔹 bez pozycji fixed */
 footer {
   background-color: rgba(51, 50, 54, 0.6);
   color: white;
   text-align: center;
   padding: 10px;
-  position: fixed;
+  position: static;
   width: 100%;
-  bottom: 0;
 }
 
 /* Przycisk zmiany tła */
@@ -104,10 +101,21 @@ footer {
   }
 }
 
-/* Ogólne tło */
+/* Ogólne tło — 🔹 usunięto fixed i zamieniono GIF na lżejszy format */
 html {
-  background: url('../image/wallpaper.gif') no-repeat center center fixed;
+  background: url('../image/wallpaper.webp') no-repeat center center;
   background-size: cover;
+  background-attachment: scroll;
+}
+
+/* 🔹 Ciemna półprzezroczysta nakładka na tło (opcjonalna, poprawia płynność) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  z-index: -1;
 }
 
 body {
@@ -118,13 +126,13 @@ body {
   color: white;
 }
 
-/* Linki i klasa .kolor z efektem neonowym */
+/* Linki i klasa .kolor z efektem neonowym, ale BEZ animacji */
 a, .kolor {
   color: white;
   text-decoration: none;
   text-shadow: 0 0 10px #00ffff, 0 0 20px #0088ff;
-  animation: neon-pulse 2s infinite alternate;
   transition: all 0.3s ease-in-out;
+  animation: none;
 }
 
 a:hover, .kolor:hover {
@@ -132,7 +140,7 @@ a:hover, .kolor:hover {
   text-shadow: 0 0 20px #00ffff, 0 0 40px #0088ff;
 }
 
-/* 🔹 Definicja animacji neon-pulse */
+/* 🔹 Definicja animacji neon-pulse (zostaje tylko dla h1) */
 @keyframes neon-pulse {
   from {
     text-shadow: 
