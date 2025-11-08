@@ -43,7 +43,7 @@ nav ul li {
   margin: 0 15px;
 }
 
-/* 🌈 Neonowy efekt bez animacji */
+/* 🌈 Neonowy efekt bazowy (bez animacji) */
 nav ul li a {
   color: white;
   text-decoration: none;
@@ -53,10 +53,10 @@ nav ul li a {
   animation: none;
 }
 
-/* Efekt przy najechaniu */
+/* 💡 Efekt przy najechaniu — delikatne pulsowanie */
 nav ul li a:hover {
   color: #00ffff;
-  text-shadow: 0 0 20px #00ffff, 0 0 40px #0088ff;
+  animation: neon-hover 1.5s infinite alternate;
 }
 
 /* Stylowanie stopki — 🔹 bez pozycji fixed */
@@ -101,14 +101,14 @@ footer {
   }
 }
 
-/* Ogólne tło — 🔹 usunięto fixed i zamieniono GIF na lżejszy format */
+/* 🔹 Ogólne tło — zostawiamy GIF-a, ale bez "fixed" */
 html {
   background: url('../image/wallpaper.gif') no-repeat center center;
   background-size: cover;
-  background-attachment: scroll;
+  background-attachment: scroll; /* ✅ zamiast fixed — mniej lagów */
 }
 
-/* 🔹 Ciemna półprzezroczysta nakładka na tło (opcjonalna, poprawia płynność) */
+/* 🔹 Ciemna półprzezroczysta nakładka na GIF (redukuje migotanie i poprawia czytelność) */
 body::before {
   content: "";
   position: fixed;
@@ -135,25 +135,42 @@ a, .kolor {
   animation: none;
 }
 
+/* 💡 Link pulsuje tylko po najechaniu */
 a:hover, .kolor:hover {
   color: #00ffff;
-  text-shadow: 0 0 20px #00ffff, 0 0 40px #0088ff;
+  animation: neon-hover 1.5s infinite alternate;
 }
 
-/* 🔹 Definicja animacji neon-pulse (zostaje tylko dla h1) */
+/* 🔹 Animacja dla nagłówka */
 @keyframes neon-pulse {
   from {
-    text-shadow: 
+    text-shadow:
       0 0 5px #00ffff,
       0 0 10px #00ffff,
       0 0 20px #0088ff,
       0 0 40px #0088ff;
   }
   to {
-    text-shadow: 
+    text-shadow:
       0 0 10px #00ffff,
       0 0 20px #00ffff,
       0 0 40px #0088ff,
       0 0 80px #0088ff;
+  }
+}
+
+/* 🔹 Nowa animacja — delikatny puls przy hoverze */
+@keyframes neon-hover {
+  from {
+    text-shadow:
+      0 0 10px #00ffff,
+      0 0 20px #0088ff,
+      0 0 40px #0088ff;
+  }
+  to {
+    text-shadow:
+      0 0 20px #00ffff,
+      0 0 40px #00ffff,
+      0 0 60px #0088ff;
   }
 }
