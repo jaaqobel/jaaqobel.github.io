@@ -3,94 +3,192 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zmiana Kontrastu</title>
+<title>Neonowa strona z kontrastem</title>
 
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Resetowanie */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ogólne style strony */
+body {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 20px 60px 20px;
+  transition: filter 0.2s ease;
+  background: url('wallpaper.gif') no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll;
+  position: relative;
+}
+
+/* Półprzezroczysta nakładka na GIF */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Nagłówek */
+header {
+  background-color: rgba(51,50,54,0.6);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #0088ff;
+  filter: drop-shadow(0 0 10px #00ffff);
+  animation: neon-pulse 2s infinite alternate;
+}
+
+/* Nawigacja */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a, .kolor {
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #0088ff;
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover, .kolor:hover {
+  color: #00ffff;
+  animation: neon-hover 1.5s infinite alternate;
+}
+
+/* Stopka */
+footer {
+  background-color: rgba(51,50,54,0.6);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: static;
+  width: 100%;
+}
+
+/* Sekcje */
+section {
+  background-color: rgba(88,64,125,0.6);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+
+/* Suwak kontrastu */
+.contrast-container {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+#contrastRange {
+  width: 150px;
+  height: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #444;
+  border-radius: 5px;
+}
+
+/* Chrome/Edge */
+#contrastRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ffff;
+  cursor: pointer;
+}
+
+/* Firefox */
+#contrastRange::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  background: #00ffff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00ffff;
+  cursor: pointer;
+  border: none;
+}
+
+#contrastRange::-moz-range-track {
+  background: #444;
+  height: 6px;
+  border-radius: 5px;
+}
+
+/* Animacje neon */
+@keyframes neon-pulse {
+  from {
+    text-shadow: 0 0 5px #00ffff,0 0 10px #00ffff,0 0 20px #0088ff,0 0 40px #0088ff;
   }
-
-  body {
-    font-family: Arial, sans-serif;
-    background: #222;
-    color: white;
-    padding: 20px;
-    transition: filter 0.2s ease;
+  to {
+    text-shadow: 0 0 10px #00ffff,0 0 20px #00ffff,0 0 40px #0088ff,0 0 80px #0088ff;
   }
+}
 
-  header {
-    text-align: center;
-    margin-bottom: 30px;
+@keyframes neon-hover {
+  from {
+    text-shadow: 0 0 10px #00ffff,0 0 20px #0088ff,0 0 40px #0088ff;
   }
-
-  .contrast-container {
-    width: 100%;
-    text-align: center;
-    margin: 30px 0;
-    font-size: 1.3rem;
+  to {
+    text-shadow: 0 0 20px #00ffff,0 0 40px #00ffff,0 0 60px #0088ff;
   }
+}
 
-  /* Mały suwak – działający w Chrome, Edge i Firefox */
-  #contrastRange {
-    width: 180px;
-    height: 6px;
-    margin-top: 12px;
-    cursor: pointer;
-
-    -webkit-appearance: none;
-    appearance: none;
-
-    background: #444;
-    border-radius: 5px;
+/* Responsywność */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
   }
-
-  /* CHROME & EDGE */
-  #contrastRange::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #00ffff;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #00ffff;
-    cursor: pointer;
+  nav ul {
+    flex-direction: column;
   }
-
-  /* FIREFOX */
-  #contrastRange::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
-    background: #00ffff;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #00ffff;
-    cursor: pointer;
-    border: none;
+  nav ul li {
+    margin: 5px 0;
   }
-
-  /* Pasek w Firefox */
-  #contrastRange::-moz-range-track {
-    background: #444;
-    height: 6px;
-    border-radius: 5px;
-  }
-
-  section {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 800px;
-  }
+}
 </style>
 
 </head>
 <body>
 
 <header>
-  <h1>Regulacja Kontrastu Strony</h1>
+  <h1>Neonowa Strona z Kontrastem</h1>
 </header>
 
+<nav>
+  <ul>
+    <li><a href="#" class="kolor">Strona 1</a></li>
+    <li><a href="#" class="kolor">Strona 2</a></li>
+    <li><a href="#" class="kolor">Strona 3</a></li>
+  </ul>
+</nav>
+
+<!-- Suwak kontrastu -->
 <div class="contrast-container">
   <label for="contrastRange">Kontrast strony:</label><br>
   <input type="range" id="contrastRange" min="50" max="500" value="100">
@@ -98,16 +196,21 @@
 
 <section>
   <h2>Przykładowa treść</h2>
-  <p>Ten tekst i wszystkie elementy strony będą zmieniały kontrast wraz z użyciem suwaka powyżej.</p>
+  <p>Cała zawartość strony zmieni kontrast w zależności od ustawienia suwaka powyżej.</p>
 </section>
 
-<script>
-  const contrastSlider = document.getElementById("contrastRange");
+<footer>
+  &copy; 2025 Neonowa Strona
+</footer>
 
-  contrastSlider.addEventListener("input", function () {
-    const value = contrastSlider.value;
-    document.body.style.filter = `contrast(${value * 2}%)`;
-  });
+<script>
+const contrastSlider = document.getElementById("contrastRange");
+
+// Zmieniamy kontrast całej strony (html)
+contrastSlider.addEventListener("input", function () {
+  const value = contrastSlider.value;
+  document.documentElement.style.filter = `contrast(${value * 2}%)`;
+});
 </script>
 
 </body>
