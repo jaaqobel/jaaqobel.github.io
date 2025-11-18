@@ -53,3 +53,47 @@
     height: 16px;
     background: #00ffff;
     border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 8px #00ffff;
+  }
+
+  section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+</style>
+
+</head>
+<body>
+
+<header>
+  <h1>Regulacja Kontrastu Strony</h1>
+</header>
+
+<!-- Suwak kontrastu -->
+<div class="contrast-container">
+  <label for="contrastRange">Kontrast strony:</label><br>
+  <input type="range" id="contrastRange" min="50" max="500" value="100">
+</div>
+
+<section>
+  <h2>Przykładowa treść</h2>
+  <p>
+    Ten tekst i wszystkie elementy strony będą zmieniały kontrast wraz z użyciem suwaka powyżej.
+  </p>
+</section>
+
+<script>
+  const contrastSlider = document.getElementById("contrastRange");
+
+  contrastSlider.addEventListener("input", function () {
+    const value = contrastSlider.value;
+    document.body.style.filter = `contrast(${value * 2}%)`;
+  });
+</script>
+
+</body>
+</html>
