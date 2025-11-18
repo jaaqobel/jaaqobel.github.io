@@ -1,29 +1,82 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zmiana Kontrastu Strony</title>
-    <link rel="stylesheet" href="style/style1.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zmiana Kontrastu</title>
+
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: #222;
+    color: white;
+    padding: 20px;
+    transition: filter 0.2s ease;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  /* Suwak kontrastu */
+  .contrast-container {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 1.3rem;
+  }
+
+  #contrastRange {
+    width: 70%;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+  }
+</style>
+
 </head>
 <body>
 
-    <header>
-        <h1>Zmiana kontrastu strony</h1>
-    </header>
+<header>
+  <h1>Regulacja Kontrastu Strony</h1>
+</header>
 
-    <section>
-        <h2>Ustaw kontrast:</h2>
-        <label for="contrast-slider">Kontrast: </label>
-        <input type="range" id="contrast-slider" min="0" max="200" value="100" step="1">
-        <span id="contrast-value">100%</span>
-        <h3><a href="index.html">Powrót do strony głównej</a></h3>
-    </section>
+<!-- Suwak kontrastu -->
+<div class="contrast-container">
+  <label for="contrastRange">Kontrast strony:</label><br>
+  <input type="range" id="contrastRange" min="50" max="200" value="100">
+</div>
 
-    <footer>
-        <p>&copy; 2025 Moja Strona</p>
-    </footer>
+<section>
+  <h2>Przykładowa treść</h2>
+  <p>
+    Ten tekst i wszystkie elementy strony będą zmieniały kontrast wraz z użyciem suwaka powyżej.
+  </p>
+</section>
 
-    <script src="script.js"></script>
+<script>
+  const contrastSlider = document.getElementById("contrastRange");
+
+  contrastSlider.addEventListener("input", function () {
+    const value = contrastSlider.value;
+    document.body.style.filter = `contrast(${value}%)`;
+  });
+</script>
+
 </body>
 </html>
