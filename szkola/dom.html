@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Prosta strona DOM</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="naglowek">Witaj na mojej stronie</h1>
+
+    <p id="tekst">Kliknij przycisk, aby zmienić tekst</p>
+
+    <button onclick="zmienTekst()">Zmień tekst</button>
+
+    <br><br>
+
+    <input type="text" id="imie" placeholder="Wpisz imię">
+    <button onclick="pokazImie()">Pokaż imię</button>
+
+    <p id="wynik"></p>
+
+    <button onclick="zmienKolor()">Zmień kolor tła</button>
+
+    <script src="script.js">
+      // Funkcja zmieniająca tekst
+function zmienTekst() {
+    document.getElementById("tekst").innerHTML = "Tekst został zmieniony!";
+}
+
+// Funkcja pobierająca imię z inputa
+function pokazImie() {
+    let imie = document.getElementById("imie").value;
+    document.getElementById("wynik").innerHTML = "Cześć " + imie + "!";
+}
+
+// Funkcja zmieniająca kolor tła
+function zmienKolor() {
+    document.body.style.backgroundColor = "lightblue";
+}
+
+    </script>
+</body>
+</html>
