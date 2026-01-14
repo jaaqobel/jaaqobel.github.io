@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Dodawanie elementów</title>
+
+  <style>
+    #container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .box {
+      padding: 10px 20px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-family: Arial, sans-serif;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #ff6a4d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <div class="box">strong</div>
+    <div class="box">strong</div>
+  </div>
+
+  <button id="addBtn">Wstaw element</button>
+
+  <script>
+    const container = document.getElementById("container");
+    const button = document.getElementById("addBtn");
+
+    let counter = 1;
+
+    function randomColor() {
+      return `hsl(${Math.random() * 360}, 70%, 70%)`;
+    }
+
+    button.addEventListener("click", () => {
+      const div = document.createElement("div");
+      div.className = "box";
+      div.textContent = `Nowy ${counter}`;
+      div.style.backgroundColor = randomColor();
+
+      container.appendChild(div);
+      counter++;
+    });
+  </script>
+
+</body>
+</html>
