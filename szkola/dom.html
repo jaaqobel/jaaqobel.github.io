@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Prosta strona DOM</title>
+
     <style>
         body {
             font-family: Arial;
             text-align: center;
             margin-top: 50px;
+            transition: background-color 0.3s;
         }
 
         button {
@@ -21,35 +23,72 @@
     <h1 id="naglowek">Witaj na mojej stronie</h1>
 
     <p id="tekst">Kliknij przycisk, aby zmienić tekst</p>
-
-    <button onclick="zmienTekst()">Zmień tekst</button>
+    <button id="btnTekst">Zmień tekst</button>
 
     <br><br>
 
     <input type="text" id="imie" placeholder="Wpisz imię">
-    <button onclick="pokazImie()">Pokaż imię</button>
+    <button id="btnImie">Pokaż imię</button>
 
     <p id="wynik"></p>
 
-    <button onclick="zmienKolor()">Zmień kolor tła</button>
+    <button id="btnKolor">Zmień kolor tła</button>
 
     <script>
-      // Funkcja zmieniająca tekst
-function zmienTekst() {
-    document.getElementById("tekst").innerHTML = "Tekst został zmieniony!";
-}
+        // ===== ZMIANA TEKSTU (toggle) =====
+        const tekst = document.getElementById("tekst");
+        const btnTekst = document.getElementById("btnTekst");
 
-// Funkcja pobierająca imię z inputa
-function pokazImie() {
-    let imie = document.getElementById("imie").value;
-    document.getElementById("wynik").innerHTML = "Cześć " + imie + "!";
-}
+        let tekstZmieniony = false;
+        const oryginalnyTekst = tekst.textContent;
 
-// Funkcja zmieniająca kolor tła
-function zmienKolor() {
-    document.body.style.backgroundColor = "lightblue";
-}
+        btnTekst.addEventListener("click", function () {
+            if (!tekstZmieniony) {
+                tekst.textContent = "Tekst został zmieniony!";
+                btnTekst.textContent = "Cofnij tekst";
+            } else {
+                tekst.textContent = oryginalnyTekst;
+                btnTekst.textContent = "Zmień tekst";
+            }
+            tekstZmieniony = !tekstZmieniony;
+        });
 
+        // ===== POKAZYWANIE IMIENIA (toggle) =====
+        const inputImie = document.getElementById("imie");
+        const btnImie = document.getElementById("btnImie");
+        const wynik = document.getElementById("wynik");
+
+        let imieWidoczne = false;
+
+        btnImie.addEventListener("click", function () {
+            if (!imieWidoczne) {
+                wynik.textContent = "Cześć " + inputImie.value + "!";
+                btnImie.textContent = "Cofnij";
+            } else {
+                wynik.textContent = "";
+                inputImie.value = "";
+                btnImie.textContent = "Pokaż imię";
+            }
+            imieWidoczne = !imieWidoczne;
+        });
+
+        // ===== KOLOR TŁA (toggle) =====
+        const btnKolor = document.getElementById("btnKolor");
+        const oryginalnyKolor = document.body.style.backgroundColor;
+        let kolorZmieniony = false;
+
+        btnKolor.addEventListener("click", function () {
+            if (!kolorZmieniony) {
+                document.body.style.backgroundColor =
+                    "#" + Math.floor(Math.random() * 16777215).toString(16);
+                btnKolor.textContent = "Cofnij kolor";
+            } else {
+                document.body.style.backgroundColor = oryginalnyKolor;
+                btnKolor.textContent = "Zmień kolor tła";
+            }
+            kolorZmieniony = !kolorZmieniony;
+        });
     </script>
+
 </body>
 </html>
