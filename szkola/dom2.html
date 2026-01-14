@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
-  <title>Dodawanie elementów</title>
+  <title>Dodawanie i usuwanie elementów</title>
 
   <style>
     #container {
@@ -16,10 +16,13 @@
       border-radius: 6px;
       border: 1px solid #ccc;
       font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    button {
-      padding: 10px 20px;
+    input[type="button"] {
+      padding: 6px 12px;
       background: #ff6a4d;
       color: white;
       border: none;
@@ -31,15 +34,21 @@
 <body>
 
   <div id="container">
-    <div class="box">strong</div>
-    <div class="box">strong</div>
+    <div class="box">
+      strong
+      <input type="button" value="Usuń">
+    </div>
+    <div class="box">
+      strong
+      <input type="button" value="Usuń">
+    </div>
   </div>
 
-  <button id="addBtn">Wstaw element</button>
+  <input type="button" id="addBtn" value="Wstaw element">
 
   <script>
     const container = document.getElementById("container");
-    const button = document.getElementById("addBtn");
+    const addBtn = document.getElementById("addBtn");
 
     let counter = 1;
 
@@ -47,13 +56,38 @@
       return `hsl(${Math.random() * 360}, 70%, 70%)`;
     }
 
-    button.addEventListener("click", () => {
+    function createBox(text) {
       const div = document.createElement("div");
       div.className = "box";
-      div.textContent = `Nowy ${counter}`;
       div.style.backgroundColor = randomColor();
 
-      container.appendChild(div);
+      const span = document.createElement("span");
+      span.textContent = text;
+
+      const removeBtn = document.createElement("input");
+      removeBtn.type = "button";
+      removeBtn.value = "Usuń";
+
+      removeBtn.addEventListener("click", () => {
+        div.remove();
+      });
+
+      div.appendChild(span);
+      div.appendChild(removeBtn);
+
+      return div;
+    }
+
+    // usuwanie dla istniejących elementów
+    document.querySelectorAll(".box input").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.target.parentElement.remove();
+      });
+    });
+
+    addBtn.addEventListener("click", () => {
+      const box = createBox(`Nowy ${counter}`);
+      container.appendChild(box);
       counter++;
     });
   </script>
