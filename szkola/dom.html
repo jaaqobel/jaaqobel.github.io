@@ -58,6 +58,7 @@
 
   <!-- DODAWANIE / USUWANIE -->
   <input type="button" id="addBtn" value="Wstaw element">
+  <input type="button" id="addFrontBtn" value="Wstaw na początek">
 
   <div id="container">
     <div class="box">
@@ -153,6 +154,13 @@
 
     addBtn.onclick = () => {
       container.appendChild(createBox(`Nowy ${counter++}`));
+    };
+    const addFrontBtn = document.getElementById("addFrontBtn");
+    addBtn.onlick = () => {
+      container.append(createBox(`Nowy ${counter++}`));
+    };
+    addFrontBtn.onclick = () => {
+  container.prepend(createBox(`Nowy ${counter++}`));
     };
   </script>
 
