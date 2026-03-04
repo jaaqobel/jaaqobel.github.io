@@ -1,22 +1,42 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Tabliczka mnożenia</title>
 </head>
 <body>
-    <script>
-        let table = new Array(11);
-        for (let i = 0; i < table.length; i++) {
-            table [i] = new Array(11);
+
+<h2>Tabliczka mnożenia 1–10</h2>
+<div id="tabliczka"></div>
+
+<script>
+    let tabliczka = [];
+
+    // Tworzenie zagnieżdżonej tablicy
+    for (let i = 1; i <= 10; i++) {
+        let wiersz = [];
+        for (let j = 1; j <= 10; j++) {
+            wiersz.push(i * j);
         }
-        for (let row = 0; row < table.length; row++){
-            for (let col = 0; col <table[row].length; col++){
-                table [row][col] = row*col;
-            }
-        }      
-        console.log(table)
-        
-        </script> 
+        tabliczka.push(wiersz);
+    }
+
+    // Tworzenie tabeli HTML
+    let html = "<table border='1' cellpadding='5'>";
+    
+    for (let i = 0; i < tabliczka.length; i++) {
+        html += "<tr>";
+        for (let j = 0; j < tabliczka[i].length; j++) {
+            html += "<td>" + tabliczka[i][j] + "</td>";
+        }
+        html += "</tr>";
+    }
+
+    html += "</table>";
+
+    document.getElementById("tabliczka").innerHTML = html;
+</script>
+
 </body>
-</html> 
+</html>
