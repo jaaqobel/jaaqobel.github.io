@@ -63,12 +63,14 @@ input[type="button"] {
 <input type="button" id="addFrontBtn" value="Wstaw na początek">
 
 <div id="container">
-  <div class="box">
-    strong
+  <div class="box" draggable="true">
+    <span>Element 1</span>
+    <input type="button" value="Edytuj">
     <input type="button" value="Usuń">
   </div>
-  <div class="box">
-    strong
+  <div class="box" draggable="true">
+    <span>Element 2</span>
+    <input type="button" value="Edytuj">
     <input type="button" value="Usuń">
   </div>
 </div>
@@ -169,6 +171,7 @@ function addDragEvents(element) {
 }
 
 function createBox(text) {
+
   const div = document.createElement("div");
   div.className = "box";
   div.style.backgroundColor = randomColor();
@@ -177,29 +180,64 @@ function createBox(text) {
   const span = document.createElement("span");
   span.textContent = text;
 
+  const editBtn = document.createElement("input");
+  editBtn.type = "button";
+  editBtn.value = "Edytuj";
+
+  editBtn.onclick = () => {
+
+    const newText = prompt("Podaj nowy tekst:", span.textContent);
+    if (newText !== null && newText !== "") {
+      span.textContent = newText;
+    }
+
+    const newId = prompt("Podaj nowe ID elementu:", div.id);
+    if (newId !== null && newId !== "") {
+      div.id = newId;
+    }
+
+  };
+
   const removeBtn = document.createElement("input");
   removeBtn.type = "button";
   removeBtn.value = "Usuń";
   removeBtn.onclick = () => div.remove();
 
-  div.append(span, removeBtn);
+  div.append(span, editBtn, removeBtn);
 
   addDragEvents(div);
+
   return div;
 }
 
-// usuwanie dla początkowych elementów
-document.querySelectorAll(".box input").forEach(btn => {
-  btn.onclick = e => e.target.parentElement.remove();
-});
-
-// dodanie drag dla istniejących
+// obsługa istniejących elementów
 document.querySelectorAll(".box").forEach(box => {
-  box.draggable = true;
+
+  const span = box.querySelector("span");
+  const editBtn = box.children[1];
+  const removeBtn = box.children[2];
+
+  editBtn.onclick = () => {
+
+    const newText = prompt("Podaj nowy tekst:", span.textContent);
+    if (newText !== null && newText !== "") {
+      span.textContent = newText;
+    }
+
+    const newId = prompt("Podaj nowe ID elementu:", box.id);
+    if (newId !== null && newId !== "") {
+      box.id = newId;
+    }
+
+  };
+
+  removeBtn.onclick = () => box.remove();
+
   addDragEvents(box);
+
 });
 
-// dodawanie
+// dodawanie elementów
 addBtn.onclick = () => {
   container.appendChild(createBox(`Nowy ${counter++}`));
 };
