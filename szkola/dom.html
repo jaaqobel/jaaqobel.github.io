@@ -1,168 +1,214 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8">
-  <title>Strona DOM – wszystko w jednym</title>
+<meta charset="UTF-8">
+<title>Strona DOM – wszystko w jednym</title>
 
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      margin-top: 40px;
-      transition: background-color 0.3s;
-    }
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  margin-top: 40px;
+  transition: background-color 0.3s;
+}
 
-    input[type="button"] {
-      padding: 10px 15px;
-      margin: 5px;
-      cursor: pointer;
-    }
+input[type="button"] {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+}
 
-    #container {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 20px;
-      flex-wrap: wrap;
-    }
+#container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
 
-    .box {
-      padding: 10px 15px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-  </style>
+.box {
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  cursor: grab;
+}
+</style>
 </head>
+
 <body>
 
-  <h1 id="naglowek">JAAQOBEl</h1>
+<h1 id="naglowek">JAAQOBEl</h1>
 
-  <!-- ZMIANA TEKSTU -->
-  <p id="tekst">Zmiana tekstu</p>
-  <input type="button" id="btnTekst" value="Zmień tekst">
+<!-- ZMIANA TEKSTU -->
+<p id="tekst">Zmiana tekstu</p>
+<input type="button" id="btnTekst" value="Zmień tekst">
 
-  <br><br>
+<br><br>
 
-  <!-- IMIĘ -->
-  <input type="text" id="imie" placeholder="Wpisz imię">
-  <input type="button" id="btnImie" value="Pokaż imię">
-  <p id="wynik"></p>
+<!-- IMIĘ -->
+<input type="text" id="imie" placeholder="Wpisz imię">
+<input type="button" id="btnImie" value="Pokaż imię">
+<p id="wynik"></p>
 
-  <!-- KOLOR -->
-  <input type="button" id="btnKolor" value="Zmień kolor tła">
+<!-- KOLOR -->
+<input type="button" id="btnKolor" value="Zmień kolor tła">
 
-  <hr>
+<hr>
 
-  <!-- DODAWANIE / USUWANIE -->
-  <input type="button" id="addBtn" value="Wstaw element">
-  <input type="button" id="addFrontBtn" value="Wstaw na początek">
+<!-- DODAWANIE / USUWANIE -->
+<input type="button" id="addBtn" value="Wstaw element">
+<input type="button" id="addFrontBtn" value="Wstaw na początek">
 
-  <div id="container">
-    <div class="box">
-      strong
-      <input type="button" value="Usuń">
-    </div>
-    <div class="box">
-      strong
-      <input type="button" value="Usuń">
-    </div>
+<div id="container">
+  <div class="box">
+    strong
+    <input type="button" value="Usuń">
   </div>
+  <div class="box">
+    strong
+    <input type="button" value="Usuń">
+  </div>
+</div>
 
-  <script>
-    // ===== ZMIANA TEKSTU =====
-    const tekst = document.getElementById("tekst");
-    const btnTekst = document.getElementById("btnTekst");
-    let tekstZmieniony = false;
-    const oryginalnyTekst = tekst.textContent;
+<script>
 
-    btnTekst.onclick = () => {
-      tekst.textContent = tekstZmieniony
-        ? oryginalnyTekst
-        : "Tekst został zmieniony!";
-      btnTekst.value = tekstZmieniony
-        ? "Zmień tekst"
-        : "Cofnij tekst";
-      tekstZmieniony = !tekstZmieniony;
-    };
+// ===== ZMIANA TEKSTU =====
+const tekst = document.getElementById("tekst");
+const btnTekst = document.getElementById("btnTekst");
+let tekstZmieniony = false;
+const oryginalnyTekst = tekst.textContent;
 
-    // ===== IMIĘ =====
-    const inputImie = document.getElementById("imie");
-    const btnImie = document.getElementById("btnImie");
-    const wynik = document.getElementById("wynik");
-    let imieWidoczne = false;
+btnTekst.onclick = () => {
+  tekst.textContent = tekstZmieniony
+    ? oryginalnyTekst
+    : "Tekst został zmieniony!";
+  btnTekst.value = tekstZmieniony
+    ? "Zmień tekst"
+    : "Cofnij tekst";
+  tekstZmieniony = !tekstZmieniony;
+};
 
-    btnImie.onclick = () => {
-      if (!imieWidoczne) {
-        wynik.textContent = "Cześć " + inputImie.value + "!";
-        btnImie.value = "Cofnij";
+// ===== IMIĘ =====
+const inputImie = document.getElementById("imie");
+const btnImie = document.getElementById("btnImie");
+const wynik = document.getElementById("wynik");
+let imieWidoczne = false;
+
+btnImie.onclick = () => {
+  if (!imieWidoczne) {
+    wynik.textContent = "Cześć " + inputImie.value + "!";
+    btnImie.value = "Cofnij";
+  } else {
+    wynik.textContent = "";
+    inputImie.value = "";
+    btnImie.value = "Pokaż imię";
+  }
+  imieWidoczne = !imieWidoczne;
+};
+
+// ===== KOLOR =====
+const btnKolor = document.getElementById("btnKolor");
+let kolorZmieniony = false;
+const oryginalnyKolor = document.body.style.backgroundColor;
+
+btnKolor.onclick = () => {
+  document.body.style.backgroundColor = kolorZmieniony
+    ? oryginalnyKolor
+    : "#" + Math.floor(Math.random() * 16777215).toString(16);
+  btnKolor.value = kolorZmieniony
+    ? "Zmień kolor tła"
+    : "Cofnij kolor";
+  kolorZmieniony = !kolorZmieniony;
+};
+
+// ===== DODAWANIE / USUWANIE =====
+const container = document.getElementById("container");
+const addBtn = document.getElementById("addBtn");
+const addFrontBtn = document.getElementById("addFrontBtn");
+let counter = 1;
+
+function randomColor() {
+  return `hsl(${Math.random() * 360}, 70%, 70%)`;
+}
+
+let dragged = null;
+
+function addDragEvents(element) {
+
+  element.addEventListener("dragstart", () => {
+    dragged = element;
+    element.style.opacity = "0.5";
+  });
+
+  element.addEventListener("dragend", () => {
+    element.style.opacity = "1";
+  });
+
+  element.addEventListener("dragover", e => {
+    e.preventDefault();
+  });
+
+  element.addEventListener("drop", e => {
+    e.preventDefault();
+
+    if (dragged !== element) {
+      const all = [...container.children];
+      const draggedIndex = all.indexOf(dragged);
+      const targetIndex = all.indexOf(element);
+
+      if (draggedIndex < targetIndex) {
+        element.after(dragged);
       } else {
-        wynik.textContent = "";
-        inputImie.value = "";
-        btnImie.value = "Pokaż imię";
+        element.before(dragged);
       }
-      imieWidoczne = !imieWidoczne;
-    };
-
-    // ===== KOLOR =====
-    const btnKolor = document.getElementById("btnKolor");
-    let kolorZmieniony = false;
-    const oryginalnyKolor = document.body.style.backgroundColor;
-
-    btnKolor.onclick = () => {
-      document.body.style.backgroundColor = kolorZmieniony
-        ? oryginalnyKolor
-        : "#" + Math.floor(Math.random() * 16777215).toString(16);
-      btnKolor.value = kolorZmieniony
-        ? "Zmień kolor tła"
-        : "Cofnij kolor";
-      kolorZmieniony = !kolorZmieniony;
-    };
-
-    // ===== DODAWANIE / USUWANIE =====
-    const container = document.getElementById("container");
-    const addBtn = document.getElementById("addBtn");
-    let counter = 1;
-
-    function randomColor() {
-      return `hsl(${Math.random() * 360}, 70%, 70%)`;
     }
+  });
+}
 
-    function createBox(text) {
-      const div = document.createElement("div");
-      div.className = "box";
-      div.style.backgroundColor = randomColor();
+function createBox(text) {
+  const div = document.createElement("div");
+  div.className = "box";
+  div.style.backgroundColor = randomColor();
+  div.draggable = true;
 
-      const span = document.createElement("span");
-      span.textContent = text;
+  const span = document.createElement("span");
+  span.textContent = text;
 
-      const removeBtn = document.createElement("input");
-      removeBtn.type = "button";
-      removeBtn.value = "Usuń";
-      removeBtn.onclick = () => div.remove();
+  const removeBtn = document.createElement("input");
+  removeBtn.type = "button";
+  removeBtn.value = "Usuń";
+  removeBtn.onclick = () => div.remove();
 
-      div.append(span, removeBtn);
-      return div;
-    }
+  div.append(span, removeBtn);
 
-    // usuwanie dla początkowych elementów
-    document.querySelectorAll(".box input").forEach(btn => {
-      btn.onclick = e => e.target.parentElement.remove();
-    });
+  addDragEvents(div);
+  return div;
+}
 
-    addBtn.onclick = () => {
-      container.appendChild(createBox(`Nowy ${counter++}`));
-    };
-    const addFrontBtn = document.getElementById("addFrontBtn");
-    addBtn.onlick = () => {
-      container.append(createBox(`Nowy ${counter++}`));
-    };
-    addFrontBtn.onclick = () => {
+// usuwanie dla początkowych elementów
+document.querySelectorAll(".box input").forEach(btn => {
+  btn.onclick = e => e.target.parentElement.remove();
+});
+
+// dodanie drag dla istniejących
+document.querySelectorAll(".box").forEach(box => {
+  box.draggable = true;
+  addDragEvents(box);
+});
+
+// dodawanie
+addBtn.onclick = () => {
+  container.appendChild(createBox(`Nowy ${counter++}`));
+};
+
+addFrontBtn.onclick = () => {
   container.prepend(createBox(`Nowy ${counter++}`));
-    };
-  </script>
+};
+
+</script>
 
 </body>
 </html>
