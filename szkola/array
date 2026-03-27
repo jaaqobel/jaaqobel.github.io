@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zaawansowana tablica</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f0f0f0;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 400px;
+            margin: auto;
+        }
+        li {
+            background: white;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .controls button {
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Edytor tablicy</h1>
+
+<input type="text" id="input" placeholder="Wpisz element">
+<br>
+<button onclick="dodajNaPoczatek()">Dodaj na początek</button>
+<button onclick="dodajNaKoniec()">Dodaj na koniec</button>
+
+<ul id="lista"></ul>
+
+<script>
+    let tablica = [];
+
+    function render() {
+        const lista = document.getElementById("lista");
+        lista.innerHTML = "";
+
+        tablica.forEach((element, index) => {
+            const li = document.createElement("li");
+
+            li.innerHTML = `
+                ${element}
+                <div class="controls">
+                    <button onclick="gora(${index})">⬆️</button>
+                    <button onclick="dol(${index})">⬇️</button>
+                    <button onclick="usun(${index})">❌</button>
+                </div>
+            `;
+
+            lista.appendChild(li);
+        });
+    }
+
+    function dodajNaPoczatek() {
+        const input = document.getElementById("input");
+        if(input.value === "") return;
+
+        tablica.unshift(input.value);
+        input.value = "";
+        render();
+    }
+
+    function dodajNaKoniec() {
+        const input = document.getElementById("input");
+        if(input.value === "") return;
+
+        tablica.push(input.value);
+        input.value = "";
+        render();
+    }
+
+    function usun(index) {
+        tablica.splice(index, 1);
+        render();
+    }
+
+    function gora(index) {
+        if(index === 0) return;
+
+        [tablica[index], tablica[index - 1]] = [tablica[index - 1], tablica[index]];
+        render();
+    }
+
+    function dol(index) {
+        if(index === tablica.length - 1) return;
+
+        [tablica[index], tablica[index + 1]] = [tablica[index + 1], tablica[index]];
+        render();
+    }
+</script>
+
+</body>
+</html>
