@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dla Oliwci ❤️</title>
+    
+    <!-- Pobieramy ładne czcionki z Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Główne ustawienia strony i tło */
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Stylizacja nagłówka z animacją bicia serca */
+        header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 15px rgba(255, 0, 80, 0.6);
+            animation: heartbeat 1.5s infinite;
+        }
+
+        /* Klatki kluczowe dla animacji bicia serca */
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.1); }
+            60% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Ustawienia dla zdjęcia */
+        aside {
+            margin: 20px 0;
+        }
+
+        aside img {
+            max-width: 320px;
+            width: 90%;
+            border-radius: 20px; /* Zaokrąglone rogi */
+            box-shadow: 0 15px 30px rgba(200, 0, 50, 0.4); /* Różowy cień */
+            border: 5px solid rgba(255, 255, 255, 0.8); /* Biała ramka */
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Efekt po najechaniu na zdjęcie myszką */
+        aside img:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 20px 40px rgba(200, 0, 50, 0.6);
+        }
+
+        /* Stylizacja sekcji z linkami */
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Ukrywamy stary tag <br>, bo używamy Flexboxa do układania elementów */
+        section br {
+            display: none; 
+        }
+
+        /* Wygląd linków (przerobione na przyciski) */
+        section a {
+            display: inline-block;
+            background: white;
+            color: #ff758c;
+            text-decoration: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px; /* Kształt pastylki */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        /* Efekt po najechaniu na przycisk */
+        section a:hover {
+            background: #ff0055;
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 0, 85, 0.5);
+            transform: translateY(-4px); /* Przycisk lekko unosi się do góry */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>❤️❤️ For Oliwcia ❤️❤️</h1>
+    </header>
+    
+    <aside>
+        <!-- Pamiętaj, żeby upewnić się, że plik zdj.jpg jest w tym samym folderze co ten plik HTML -->
+        <img src="zdj.jpg" alt="Serce dla Oliwki">
+    </aside>
+    
+    <section>
+        <a href="index.html">Zabierz mnie do serduszka</a><br>
+        <a href="index2.html">Zobacz diament</a>
+    </section>
+</body>
+</html>
